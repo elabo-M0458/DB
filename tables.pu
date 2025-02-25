@@ -2,12 +2,11 @@
 class Books {
     +id : string
     title : string
-    plice : int
+    price : int
 }
 
 Books : +id(PK)
-Books : authorId(FK)
-Books : companyId(FK)
+Books : CompanieId(FK)
 
 class Authors {
     +id : string
@@ -15,15 +14,22 @@ class Authors {
 }
 
 Authors : +id(PK)
-Authors : bookId(FK)
 
-class Companyes{
+class books_Authors{
+    +id : string
+}
+
+books_Authors : +id(PK)
+books_Authors : bookId(FK)
+books_Authors : authorId(FK)
+
+class Companies{
     +id : string
     name : string
 }
 
-Companyes : +id(PK)
-Companyes : bookId(FK)
+Companies : +id(PK)
+Companies : bookId(FK)
 
 class Customers{
     +id : string
@@ -34,13 +40,24 @@ class Customers{
 }
 
 Customers : +id(PK)
-Customers : oderId(FK)
+Customers : OrdersId(FK)
 
-class Oders{
+class Orders{
+    +id : string
+    createdAt : date
+    totalAmount : int 
+}
+
+Orders : +id(PK)
+Orders : customerId(FK)
+Orders : bookId(FK)
+
+class Orders_Books{
     +id : string
 }
 
-Oders : +id(PK)
-Oders : customerId(FK)
-Oders : bookId(FK)
+Orders_Books : +id(PK)
+Orders_Books : bookId(FK)
+Orders_Books : ordersId(FK)
+
 @enduml

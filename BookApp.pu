@@ -6,10 +6,10 @@ Companies ||-|{ Books
 Customers ||-|{ Orders
 
 '下記中間テーブルです。
-Books ||-||books_Authors
-books_Authors ||-||Orders
+Books ||-||books_authors_mapping
+books_authors_mapping ||-||Orders
 
-Orders ||-|| Orders_Books
-Orders_Books ||-|| Books
+Orders ||-|| orders_books_mapping
+orders_books_mapping ||-|| Books
 
 @enduml

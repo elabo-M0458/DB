@@ -6,7 +6,7 @@ class Books {
 }
 
 Books : +id(PK)
-Books : CompanieId(FK)
+Books : CompanyId(FK)
 
 class Authors {
     +id : string
@@ -15,13 +15,13 @@ class Authors {
 
 Authors : +id(PK)
 
-class books_Authors{
+class book_authors_mapping{
     +id : string
 }
 
-books_Authors : +id(PK)
-books_Authors : bookId(FK)
-books_Authors : authorId(FK)
+book_authors_mapping : +id(PK)
+book_authors_mapping : bookId(FK)
+book_authors_mapping : authorId(FK)
 
 class Companies{
     +id : string
@@ -52,12 +52,12 @@ Orders : +id(PK)
 Orders : customerId(FK)
 Orders : bookId(FK)
 
-class Orders_Books{
+class orders_books_mapping{
     +id : string
 }
 
-Orders_Books : +id(PK)
-Orders_Books : bookId(FK)
-Orders_Books : ordersId(FK)
+orders_books_mapping : +id(PK)
+orders_books_mapping : bookId(FK)
+orders_books_mapping : ordersId(FK)
 
 @enduml

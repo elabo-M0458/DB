@@ -1,0 +1,63 @@
+@startuml
+class Books {
+    +id : string
+    title : string
+    price : int
+}
+
+Books : +id(PK)
+Books : CompanyId(FK)
+
+class Authors {
+    +id : string
+    name : string
+}
+
+Authors : +id(PK)
+
+class book_authors_mapping{
+    +id : string
+}
+
+book_authors_mapping : +id(PK)
+book_authors_mapping : bookId(FK)
+book_authors_mapping : authorId(FK)
+
+class Companies{
+    +id : string
+    name : string
+}
+
+Companies : +id(PK)
+Companies : bookId(FK)
+
+class Customers{
+    +id : string
+    name : string
+    address : string
+    age : int
+    gender : string 
+}
+
+Customers : +id(PK)
+Customers : OrdersId(FK)
+
+class Orders{
+    +id : string
+    createdAt : date
+    totalAmount : int 
+}
+
+Orders : +id(PK)
+Orders : customerId(FK)
+Orders : bookId(FK)
+
+class orders_books_mapping{
+    +id : string
+}
+
+orders_books_mapping : +id(PK)
+orders_books_mapping : bookId(FK)
+orders_books_mapping : ordersId(FK)
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml erd
+' tables.pu はこのファイルと同じディレクトリに存在している想定です。
+!include tables.pu
+
+Companies ||-|{ Books
+Customers ||-|{ Orders
+
+'下記中間テーブルです。
+Books ||-||books_authors_mapping
+books_authors_mapping ||-||Orders
+
+Orders ||-|| orders_books_mapping
+orders_books_mapping ||-|| Books
+
+@enduml

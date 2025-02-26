@@ -4,10 +4,14 @@
 
 Companies ||-|{ Books
 Customers ||-|{ Orders
+bookStock ||-|| Books
+Books }O-||discount
 
 '下記中間テーブルです。
-Books ||-||books_authors_mapping
-books_authors_mapping ||-||Orders
+reviews }-|| Books
+reviews }-|| Customers
+Books ||-||book_authors_mapping
+book_authors_mapping ||-||Orders
 
 Orders ||-|| orders_books_mapping
 orders_books_mapping ||-|| Books

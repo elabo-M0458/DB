@@ -7,6 +7,7 @@ class Books {
 
 Books : +id(PK)
 Books : CompanyId(FK)
+Books : discountId(FK)
 
 class Authors {
     +id : string
@@ -14,14 +15,6 @@ class Authors {
 }
 
 Authors : +id(PK)
-
-class book_authors_mapping{
-    +id : string
-}
-
-book_authors_mapping : +id(PK)
-book_authors_mapping : bookId(FK)
-book_authors_mapping : authorId(FK)
 
 class Companies{
     +id : string
@@ -51,6 +44,41 @@ class Orders{
 Orders : +id(PK)
 Orders : customerId(FK)
 Orders : bookId(FK)
+
+class bookStock{
+    +id : string
+    stroks : int
+}
+
+bookStock : +id(PK)
+bookStock : bookId(FK)
+
+class discount{
+    +id : string
+    discountPrice : int
+    start_at : date
+    end_at : date
+}
+
+'下記中間テーブルです。
+class reviews{
+    +id : string
+    massage : string
+    createdAt : date
+}
+
+reviews : +id(PK)
+reviews : bookId(FK)
+reviews : customerId(FK)
+
+class book_authors_mapping{
+    +id : string
+}
+
+book_authors_mapping : +id(PK)
+book_authors_mapping : bookId(FK)
+book_authors_mapping : authorId(FK)
+
 
 class orders_books_mapping{
     +id : string

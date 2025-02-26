@@ -56,6 +56,8 @@ bookStock : bookId(FK)
 class discount{
     +id : string
     discountPrice : int
+    start_at : date
+    end_at : date
 }
 
 '下記中間テーブルです。
